@@ -1,6 +1,6 @@
 {
   "name": "@jgarber/eleventy-plugin-sass",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An Eleventy plugin for processing SCSS files with Dart Sass.",
   "keywords": [
     "eleventy",

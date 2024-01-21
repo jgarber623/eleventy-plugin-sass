@@ -32,6 +32,8 @@ module.exports = function(eleventyConfig, options_ = {}) {
     outputFileExtension: 'css',
 
     compileOptions: {
+      cache: false,
+
       permalink: (inputContent, inputPath) => {
         if (path.parse(inputPath).name.startsWith('_')) {
           return false;
