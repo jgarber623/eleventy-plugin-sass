@@ -22,6 +22,10 @@ module.exports = function(eleventyConfig) {
 };
 ```
 
+With no additional configuration, eleventy-plugin-sass will process SCSS files in your Eleventy project's input directory ([`dir.input`](https://www.11ty.dev/docs/config#input-directory)) and generate CSS files in the output directory ([`dir.output`](https://www.11ty.dev/docs/config#output-directory)).
+
+Generated CSS files' permalinks will mimic the input directory's file structure. For example, `./src/assets/stylesheets/app.scss` will generate a CSS file at `./_site/assets/stylesheets/app.css`. [Sass partials](https://sass-lang.com/guide#partials) (files whose name begins with an underscore) _will not_ generate a corresponding CSS file.
+
 ## Options
 
 eleventy-plugin-sass supports the following options:
