@@ -82,6 +82,18 @@ eleventyConfig.addPlugin(require('@jgarber/eleventy-plugin-sass'), function(sass
 
 A configuration function like the one above should return an `Object` conforming to this plugin's available options (noted in the table above!).
 
+## ESM Support
+
+Eleventy v3.0.0 [added bundler-free ESM support](https://www.11ty.dev/blog/canary-eleventy-v3). This plugin works with either ESM or CommonJS projects!
+
+```js
+import sassPlugin from '@jgarber/eleventy-plugin-sass';
+
+export default async function(eleventyConfig) {
+  eleventyConfig.addPlugin(sassPlugin);
+}
+```
+
 ## Acknowledgments
 
 First and foremost, eleventy-plugin-sass wouldn't be possible without [Zach Leatherman](https://www.zachleat.com)'s incredible work creating Eleventy and his stewardship of its community.
