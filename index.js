@@ -5,6 +5,8 @@ const sass = require('sass');
 
 const package_ = require('./package.json');
 
+const compiler = sass.initCompiler();
+
 module.exports = function(eleventyConfig, options_ = {}) {
   try {
     eleventyConfig.versionCheck(package_['11ty'].compatibility);
@@ -44,7 +46,7 @@ module.exports = function(eleventyConfig, options_ = {}) {
     compile: (inputContent, inputPath) => {
       sassOptions.loadPaths.unshift(path.parse(inputPath).dir || '.');
 
-      const { css, sourceMap } = sass.compileString(inputContent, sassOptions);
+      const { css, sourceMap } = compiler.compileString(inputContent, sassOptions);
 
       sassOptions.loadPaths.shift();
 
