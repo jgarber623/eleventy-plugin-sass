@@ -1,6 +1,6 @@
 {
   "name": "@jgarber/eleventy-plugin-sass",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "An Eleventy plugin for processing SCSS files with Dart Sass.",
   "keywords": [
     "eleventy",
@@ -25,12 +25,12 @@
     "test": "c8 ava"
   },
   "dependencies": {
-    "sass": "^1.69.7"
+    "sass": "^1.70.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@jgarber/eslint-config": "^3.0.0",
-    "ava": "^6.0.1",
+    "ava": "^6.1.0",
     "c8": "^9.1.0"
   },
   "engines": {
