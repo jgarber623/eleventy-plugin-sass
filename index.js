@@ -36,21 +36,21 @@ module.exports = function(eleventyConfig, options = {}) {
     compileOptions: {
       cache: false,
 
-      permalink: (inputContent, inputPath) => {
+      permalink: function(inputContent, inputPath) {
         if (path.parse(inputPath).name.startsWith('_')) {
           return false;
         }
       }
     },
 
-    compile: (inputContent, inputPath) => {
+    compile: function(inputContent, inputPath) {
       sassOptions.loadPaths.unshift(path.parse(inputPath).dir || '.');
 
       const { css, sourceMap } = compiler.compileString(inputContent, sassOptions);
 
       sassOptions.loadPaths.shift();
 
-      return () => {
+      return function() {
         if (sourceMap === undefined) {
           return css;
         }
