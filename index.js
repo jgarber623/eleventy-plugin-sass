@@ -3,15 +3,15 @@ const path = require('node:path');
 
 const sass = require('sass');
 
-const package_ = require('./package.json');
+const packageConfig = require('./package.json');
 
 const compiler = sass.initCompiler();
 
 module.exports = function(eleventyConfig, options_ = {}) {
   try {
-    eleventyConfig.versionCheck(package_['11ty'].compatibility);
+    eleventyConfig.versionCheck(packageConfig['11ty'].compatibility);
   } catch (error) {
-    console.log(`WARN: Eleventy Plugin (${package_.name}) Compatibility: ${error.message}`);
+    console.log(`WARN: Eleventy Plugin (${packageConfig.name}) Compatibility: ${error.message}`);
   }
 
   if (typeof options_ === 'function') {
