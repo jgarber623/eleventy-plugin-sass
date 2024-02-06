@@ -33,10 +33,6 @@ module.exports = function(eleventyConfig, options = {}) {
   eleventyConfig.addExtension(templateFormats, {
     outputFileExtension: 'css',
 
-    compileOptions: {
-      cache: false
-    },
-
     compile: function(inputContent, inputPath) {
       if (path.parse(inputPath).name.startsWith('_')) {
         return;
@@ -44,11 +40,15 @@ module.exports = function(eleventyConfig, options = {}) {
 
       sassOptions.loadPaths.unshift(path.parse(inputPath).dir || '.');
 
-      const { css, sourceMap } = compiler.compileString(inputContent, sassOptions);
+      const { css, loadedUrls, sourceMap } = compiler.compileString(inputContent, sassOptions);
 
       sassOptions.loadPaths.shift();
 
-      return function() {
+      const dependencies = loadedUrls.filter(url => url.protocol === 'file:').map(url => path.relative('.', url.pathname));
+
+      this.addDependencies(inputPath, dependencies);
+
+      return () => {
         if (sourceMap === undefined) {
           return css;
         }
