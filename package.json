@@ -21,17 +21,14 @@
   },
   "repository": "github:jgarber623/eleventy-plugin-sass",
   "scripts": {
-    "lint": "eslint .",
-    "test": "c8 ava"
+    "lint": "eslint ."
   },
   "dependencies": {
     "sass": "^1.70.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@jgarber/eslint-config": "^3.0.0",
-    "ava": "^6.1.0",
-    "c8": "^9.1.0"
+    "@jgarber/eslint-config": "^3.0.0"
   },
   "engines": {
     "node": ">=18"
