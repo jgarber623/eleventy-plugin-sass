@@ -34,16 +34,14 @@ module.exports = function(eleventyConfig, options = {}) {
     outputFileExtension: 'css',
 
     compileOptions: {
-      cache: false,
-
-      permalink: function(inputContent, inputPath) {
-        if (path.parse(inputPath).name.startsWith('_')) {
-          return false;
-        }
-      }
+      cache: false
     },
 
     compile: function(inputContent, inputPath) {
+      if (path.parse(inputPath).name.startsWith('_')) {
+        return;
+      }
+
       sassOptions.loadPaths.unshift(path.parse(inputPath).dir || '.');
 
       const { css, sourceMap } = compiler.compileString(inputContent, sassOptions);
