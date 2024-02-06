@@ -7,18 +7,18 @@ const packageConfig = require('./package.json');
 
 const compiler = sass.initCompiler();
 
-module.exports = function(eleventyConfig, options_ = {}) {
+module.exports = function(eleventyConfig, options = {}) {
   try {
     eleventyConfig.versionCheck(packageConfig['11ty'].compatibility);
   } catch (error) {
     console.log(`WARN: Eleventy Plugin (${packageConfig.name}) Compatibility: ${error.message}`);
   }
 
-  if (typeof options_ === 'function') {
-    options_ = (options_)(sass);
+  if (typeof options === 'function') {
+    options = (options)(sass);
   }
 
-  let { sassOptions = {}, templateFormats = ['sass', 'scss'] } = options_;
+  let { sassOptions = {}, templateFormats = ['sass', 'scss'] } = options;
 
   sassOptions = Object.assign({
     loadPaths: ['node_modules']
