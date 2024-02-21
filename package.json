@@ -24,11 +24,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "sass": "^1.70.0"
+    "sass": "^1.71.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@jgarber/eslint-config": "^3.0.0"
+    "@jgarber/eslint-config": "^4.2.1"
   },
   "engines": {
     "node": ">=18"
